@@ -13,7 +13,7 @@ class TestDodoHeaderMenu:
     @allure.title('Проверка отображения/скрытия окна прямого эфира при клике на таб "Прямой эфир"')
     @allure.id('1')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
-    @allure.label('category', 'UI')
+    @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-1')
     def test_opening_live_stream(self):
         dodo.home_page.open_with(location='moscow')
@@ -28,7 +28,7 @@ class TestDodoHeaderMenu:
     @allure.title('Проверка перехода на страницу "О нас" и ее контент')
     @allure.id('2')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
-    @allure.label('category', 'UI')
+    @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-2')
     def test_opening_about_us(self):
         dodo.home_page.open_with(location='moscow')
@@ -40,7 +40,7 @@ class TestDodoHeaderMenu:
     @allure.title('Переход на отдельную страницу заполнения анкеты инспектора')
     @allure.id('3')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
-    @allure.label('category', 'UI')
+    @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-3')
     def test_transition_questionnaire_form(self):
         dodo.home_page.open_with(location='moscow')

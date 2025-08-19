@@ -13,7 +13,7 @@ class TestDodoUserLocations:
     @allure.title('Провкрка изменения города пользователя при клике на кнопку-ссылку уже выбранного города')
     @allure.id('6')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
-    @allure.label('category', 'UI')
+    @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-6')
     def test_change_location(self):
         dodo.home_page.open_with(location='moscow')
