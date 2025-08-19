@@ -46,4 +46,4 @@ class TestDodoHeaderMenu:
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_about_us_tab()
         dodo.about_us_page.click_questionnaire_button()
-        dodo.dodo_control_page.is_opened() # TODO: доделать
+        dodo.dodo_control_page.is_opened()  # TODO: доделать
