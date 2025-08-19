@@ -6,7 +6,9 @@ from selenium.webdriver.chrome.options import Options
 
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
+
     chrome_options = Options()
+
     prefs = {
         "profile.default_content_settings.popups": 0,
         "profile.default_content_setting_values.notifications": 2,
@@ -14,7 +16,9 @@ def setup_browser():
         "profile.managed_default_content_settings.geolocation": 2
     }
     chrome_options.add_experimental_option(name="prefs", value=prefs)
+
     chrome_options.page_load_strategy = 'eager'
+
     chrome_options.add_argument("--disable-geolocation")
     chrome_options.add_argument("--disable-features=Geolocation")
     chrome_options.add_argument("--disable-dev-shm-usage")
@@ -25,6 +29,7 @@ def setup_browser():
     chrome_options.add_argument("--disable-popup-blocking")
     chrome_options.add_argument("--disable-notifications")
     chrome_options.add_argument("--disable-infobars")
+
     browser.config.driver_options = chrome_options
     yield
     browser.quit()
