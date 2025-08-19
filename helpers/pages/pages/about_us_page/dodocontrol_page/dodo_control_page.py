@@ -14,6 +14,10 @@ class DodoControlPage:
             browser.open(self.url)
         return self
 
+    def is_opened(self) -> 'DodoControlPage':
+        browser.element('#select2-countries-container').should(be.present).should(be.visible)
+        return self
+
     def filling_questionnaire_form(self, country, city, address,
                                    name, birth_day, birth_month,
                                    birth_year, number, vk_link) -> 'DodoControlPage':
