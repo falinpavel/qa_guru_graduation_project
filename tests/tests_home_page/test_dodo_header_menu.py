@@ -17,8 +17,11 @@ class TestDodoHeaderMenu:
     @allure.link('https://jira.dodo.ru/tasks/DOOD-1')
     def test_opening_live_stream(self):
         dodo.home_page.open_with(location='moscow')
-        dodo.header_menu.click_live_stream_tab().check_live_stream_is_active()
-        dodo.header_menu.click_live_stream_tab().check_live_stream_is_inactive()
+        dodo.header_menu \
+            .click_live_stream_tab() \
+            .check_live_stream_is_active() \
+            .click_live_stream_tab() \
+            .check_live_stream_is_inactive()
 
     @allure.story('Неавторизованный пользователь может переходить на страницу "О нас"')
     @allure.severity(allure.severity_level.CRITICAL)
