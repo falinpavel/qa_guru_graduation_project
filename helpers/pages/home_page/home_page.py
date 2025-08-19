@@ -25,14 +25,6 @@ class HomePage:
         browser.element('[data-testid="header__about-slogan-text_link"]').should(have.text(new_location))
         return self
 
-    def check_live_stream(self) -> 'HomePage':
-        browser.element('.bEPbwt').should(be.not_.present)
-        browser.element('.ieMmsb').click()
-        browser.element('.bEPbwt').should(be.present)
-        browser.element('.ieMmsb').click()
-        browser.element('.bEPbwt').should(be.not_.present)
-        return self
-
     def check_cart_is_empty(self) -> 'HomePage':
         browser.element('[data-testid="navigation__cart"]').click()
         browser.element('.empty h2').should(be.visible).should(have.text('Пока тут пусто'))
