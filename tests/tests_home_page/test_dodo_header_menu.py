@@ -37,7 +37,7 @@ class TestDodoHeaderMenu:
 
     @allure.story('Неавторизованный пользователь на странице "О нас" может заполнить анкету и стать инспектором')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.title('Переход на отдельную страницу заполнения анкеты инспектора')
+    @allure.title('Проверка перехода на отдельную страницу для заполнения анкеты инспектора')
     @allure.id('3')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')

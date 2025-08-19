@@ -10,7 +10,7 @@ class TestDodoUserLocations:
 
     @allure.story('Неавторизованный пользователь может сменить город при клику на кнопку-ссылку')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.title('Провкрка изменения города пользователя при клике на кнопку-ссылку уже выбранного города')
+    @allure.title('Проверка изменения города пользователя при клике на кнопку-ссылку уже выбранного города')
     @allure.id('6')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')

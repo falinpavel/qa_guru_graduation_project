@@ -4,19 +4,19 @@ from selene import browser, be, have
 from helpers.config.links import Links
 
 
-class HomePage:
+class DodoControlPage:
 
     def __init__(self):
         self.url = Links.DODO_CONTROL_URL
 
-    def open(self):
+    def open(self) -> 'DodoControlPage':
         with allure.step(f'Открыть главную страницу'):
             browser.open(self.url)
         return self
 
     def filling_questionnaire_form(self, country, city, address,
                                    name, birth_day, birth_month,
-                                   birth_year, number, vk_link):
+                                   birth_year, number, vk_link) -> 'DodoControlPage':
         with allure.step(f'Заполнить анкету'):
             browser.element('#select2-countries-container').click().type(country)
             browser.element('#select2-cities-container').click().type(city)
