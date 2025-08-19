@@ -20,7 +20,9 @@ class HomePage:
     @allure.step('Изменить город из главной страницы')
     def change_location(self, new_location: str) -> 'HomePage':
         with allure.step('Кликнуть кнопку-ссылку уже выбранного города'):
-            browser.element('[data-testid="header__about-slogan-text_link"]').should(be.visible).click()
+            browser.element('.header__about-slogan-text').should(be.visible).should(have.text('Доставка пиццы'))
+            browser.element('[data-testid="header__about-slogan-text_link"]').should(be.visible).should(be.clickable)
+            browser.element('[data-testid="header__about-slogan-text_link"]').click()
         with allure.step('Ввести в поле поиска новый город'):
             browser.element('[data-testid="locality-selector-popup__search-input"]').should(be.visible).click().type(
                 new_location).press_enter()

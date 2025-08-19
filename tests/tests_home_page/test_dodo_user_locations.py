@@ -5,6 +5,7 @@ from helpers.application_manager.application_manager import dodo
 
 @allure.epic('Изменение города пользователя')
 @allure.feature('Проверка изменения города пользователя')
+@allure.suite('Изменение города пользователя')
 class TestDodoUserLocations:
 
     @allure.story('Неавторизованный пользователь может сменить город при клику на кнопку-ссылку')

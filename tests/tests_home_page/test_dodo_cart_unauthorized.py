@@ -5,6 +5,7 @@ from helpers.application_manager.application_manager import dodo
 
 @allure.epic('Корзина неавторизованного пользователя')
 @allure.feature('Проверка корзины неавторизованного пользователя на главной странице')
+@allure.suite('Корзина неавторизованного пользователя')
 class TestDodoCart:
 
     @allure.story('У неавторизованного пользователя при первом посещении сайта корзина должна быть пустой')

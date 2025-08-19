@@ -3,6 +3,8 @@ import pytest
 from selene import browser
 from selenium.webdriver.chrome.options import Options
 
+from utils import attach
+
 
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
@@ -21,8 +23,6 @@ def setup_browser():
 
     chrome_options.add_argument("--disable-geolocation")
     chrome_options.add_argument("--disable-features=Geolocation")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--ignore-certificate-errors")
     chrome_options.add_argument("--window-size=1920,1080")
     chrome_options.add_argument("--disable-extensions")
@@ -31,5 +31,12 @@ def setup_browser():
     chrome_options.add_argument("--disable-infobars")
 
     browser.config.driver_options = chrome_options
+
     yield
+
+    attach.add_screenshot(browser=browser)
+    attach.add_logs(browser=browser)
+    attach.add_html(browser=browser)
+    attach.add_video(browser=browser)
+
     browser.quit()

@@ -1,5 +1,5 @@
 import allure
-from selene import browser, be, have
+from selene import browser, be
 
 
 class HeaderMenu:
@@ -21,5 +21,5 @@ class HeaderMenu:
     @allure.step('Кликнуть на таб "О нас"')
     def click_about_us_tab(self) -> 'HeaderMenu':
         with allure.step('Кликнуть на таб "О нас"'):
-            browser.element('.HkCEG').element(have.text('О нас')).click()
+            browser.element('//a[text()="О нас"]').click()
         return self
