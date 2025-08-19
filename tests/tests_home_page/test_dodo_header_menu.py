@@ -34,3 +34,15 @@ class TestDodoHeaderMenu:
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_about_us_tab()
         dodo.about_us_page.is_opened()
+
+    @allure.story('Неавторизованный пользователь на странице "О нас" может заполнить анкету и стать инспектором')
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('Переход на отдельную страницу заполнения анкеты инспектора')
+    @allure.id('3')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-3')
+    def test_transition_questionnaire_form(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.header_menu.click_about_us_tab()
+        dodo.about_us_page.click_questionnaire_button()

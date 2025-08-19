@@ -14,8 +14,9 @@ class AboutUsPage:
             browser.open(f'{self.url}/{location}{Links.ABOUT_US_PAGE_URL}')
         return self
 
+    @allure.step('Проверить что открыта страница "О нас"')
     def is_opened(self):
-        with allure.step(f'Проверить что открыта страница "О нас"'):
+        with allure.step(f'Проверить что открыта страница "О нас" и проверить контент (тайтлы)'):
             browser.element('.h1').should(have.text('Мы'))
             browser.element('//h2[text()="Идеальные ингредиенты"]').perform(
                 command.js.scroll_into_view).should(be.visible)
@@ -32,4 +33,10 @@ class AboutUsPage:
                 command.js.scroll_into_view).should(be.visible)
             browser.element('//h2[text()="Почему Додо"]').perform(
                 command.js.scroll_into_view).should(be.visible)
+        return self
+
+    @allure.step('Клинкуть на кнопку "Заполнить анкету"')
+    def click_questionnaire_button(self):
+        with allure.step('Клинкуть на кнопку "Заполнить анкету" для перехода на страницу заполнения анкеты'):
+            browser.element('.secret-buyer__button').perform(command.js.scroll_into_view).click()
         return self
