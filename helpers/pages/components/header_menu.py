@@ -1,5 +1,5 @@
 import allure
-from selene import browser, be
+from selene import browser, be, have
 
 
 class HeaderMenu:
@@ -16,4 +16,10 @@ class HeaderMenu:
 
     def check_live_stream_is_inactive(self) -> 'HeaderMenu':
         browser.element('.bEPbwt').should(be.not_.present)
+        return self
+
+    @allure.step('Кликнуть на таб "О нас"')
+    def click_about_us_tab(self) -> 'HeaderMenu':
+        with allure.step('Кликнуть на таб "О нас"'):
+            browser.element('.HkCEG').element(have.text('О нас')).click()
         return self
