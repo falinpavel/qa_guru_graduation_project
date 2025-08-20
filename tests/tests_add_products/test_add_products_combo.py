@@ -8,17 +8,38 @@ from helpers.application_manager.application_manager import dodo
 @allure.suite('Корзина неавторизованного пользователя')
 class TestDodoAddProductsCombo:
 
-    @allure.story('Пользователь может изменить пиццу в комбо на другую')
+    @allure.story('Пользователь может изменить первую позицию в комбо на другую')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.title('При выборе комбо пользователь может изменить пиццу в комбо на желаемую')
-    @allure.id('1')
+    @allure.title('При выборе комбо пользователь может изменить первую позицию в комбо на другую желаемую')
+    @allure.id('12')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
-    @allure.link('https://jira.dodo.ru/tasks/DOOD-1')
-    def test_that_user_can_choose_size_of_pizza(self):
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-12')
+    def test_that_user_can_replace_first_position_in_combo(self):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_combo_group \
             .click_combo_group() \
             .click_combo_and_open_popup(combo_name='Пицца и напиток') \
-            .replace_pizza_in_combo(old_pizza='Пепперони фреш', new_pizza='Сырная') \
+            .replace_first_position_in_combo(old='Пепперони фреш', new='Сырная') \
+            .close_popup() \
+            .click_combo_and_open_popup(combo_name='2 напитка') \
+            .replace_first_position_in_combo(old='Добрый Кола', new='Добрый Киви-Виноград') \
+            .close_popup()
+
+    @allure.story('Пользователь может изменить вторую позицию в комбо на другую')
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('При выборе комбо пользователь может изменить вторую позицию в комбо на двугую желаемую')
+    @allure.id('13')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-13')
+    def test_that_user_can_replace_second_position_in_combo(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.home_page_combo_group \
+            .click_combo_group() \
+            .click_combo_and_open_popup(combo_name='Салат и закуска') \
+            .replace_second_position_in_combo(old='Додстер', new='Острый Додстер') \
+            .close_popup() \
+            .click_combo_and_open_popup(combo_name='2 пиццы') \
+            .replace_second_position_in_combo(old='Ветчина и грибы', new='Гавайская') \
             .close_popup()

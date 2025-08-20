@@ -17,7 +17,7 @@ class HomePagePizzaGroup:
         return self
 
     @allure.step('Выбрать размер пиццы')
-    def choose_size_of_pizza(self, pizza_size) -> 'HomePagePizzaGroup':
+    def select_pizza_size(self, pizza_size) -> 'HomePagePizzaGroup':
         with allure.step(f'Выбрать размер пиццы {pizza_size}'):
             browser.element(f'[data-testid="menu__pizza_size_{pizza_size}"]').click()
         return self

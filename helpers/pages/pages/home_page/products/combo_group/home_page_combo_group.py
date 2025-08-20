@@ -22,12 +22,22 @@ class HomePageComboGroup:
             browser.element('.popup-close-button').click()
         return self
 
-    @allure.step('Нажать на кнопку "Заменить" пиццу в комбо')
-    def replace_pizza_in_combo(self, old_pizza: str, new_pizza: str) -> 'HomePageComboGroup':
-        with allure.step('Заменить пиццу в комбо на другую можно нажав на кнопку "Заменить"'):
-            browser.element('(//div[@class="name"])[1]').should(have.text(old_pizza))
+    @allure.step('Нажать на кнопку "Заменить" в комбо для первой позиции')
+    def replace_first_position_in_combo(self, old: str, new: str) -> 'HomePageComboGroup':
+        with allure.step('Заменить в комбо первый элемент на другую позицию можно нажав на кнопку "Заменить"'):
+            browser.element('(//div[@class="name"])[1]').should(have.text(old))
             browser.element('(//button[contains(text(),"Заменить")])[1]').click()
-        with allure.step(f'Выбрать пиццу {new_pizza}'):
-            browser.element(f'//div[@class="sc-rtif5y-2 ceuSI" and text()="{new_pizza}"]').click()
-            browser.element('(//div[@class="name"])[1]').should(have.text(new_pizza))
+        with allure.step(f'Выбрать новую позицию {new}'):
+            browser.element(f'//div[@class="sc-rtif5y-2 ceuSI" and text()="{new}"]').click()
+            browser.element('(//div[@class="name"])[1]').should(have.text(new))
+        return self
+
+    @allure.step('Нажать на кнопку "Заменить" в комбо для второй позиции')
+    def replace_second_position_in_combo(self, old: str, new: str) -> 'HomePageComboGroup':
+        with allure.step('Заменить в комбо второй элемент на другую позицию можно нажав на кнопку "Заменить"'):
+            browser.element('(//div[@class="name"])[2]').should(have.text(old))
+            browser.element('(//button[contains(text(),"Заменить")])[2]').click()
+        with allure.step(f'Выбрать новую позицию {new}'):
+            browser.element(f'//div[@class="sc-rtif5y-2 ceuSI" and text()="{new}"]').click()
+            browser.element('(//div[@class="name"])[2]').should(have.text(new))
         return self

@@ -20,16 +20,16 @@ class TestDodoAddProductsPizza:
         dodo.home_page_pizza_group.click_pizza_group()
         dodo.home_page_pizza_group \
             .click_pizza_and_open_popup(pizza_name='Терияки') \
-            .choose_size_of_pizza(pizza_size='20 см') \
-            .choose_size_of_pizza(pizza_size='25 см') \
-            .choose_size_of_pizza(pizza_size='30 см') \
-            .choose_size_of_pizza(pizza_size='35 см') \
+            .select_pizza_size(pizza_size='20 см') \
+            .select_pizza_size(pizza_size='25 см') \
+            .select_pizza_size(pizza_size='30 см') \
+            .select_pizza_size(pizza_size='35 см') \
             .close_popup() \
             .click_pizza_and_open_popup(pizza_name='Чесночный цыпленок') \
-            .choose_size_of_pizza(pizza_size='35 см') \
-            .choose_size_of_pizza(pizza_size='30 см') \
-            .choose_size_of_pizza(pizza_size='25 см') \
-            .choose_size_of_pizza(pizza_size='20 см') \
+            .select_pizza_size(pizza_size='35 см') \
+            .select_pizza_size(pizza_size='30 см') \
+            .select_pizza_size(pizza_size='25 см') \
+            .select_pizza_size(pizza_size='20 см') \
             .close_popup()
 
     @allure.story('Пользователь может выбрать тесто для пиццы')
