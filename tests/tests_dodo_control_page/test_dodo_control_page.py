@@ -4,7 +4,7 @@ from helpers.application_manager.application_manager import dodo
 from helpers.data.user_info import user
 
 
-@allure.epic('Верхнее меню на главной странице')
+@allure.epic('Страница регистрации инспектора (тайного покупателя)')
 @allure.feature('Проверка работы верхнего меню, переключение табов и проверка их активности')
 @allure.suite('Верхнее меню на главной странице')
 class TestDodoControlPage:
