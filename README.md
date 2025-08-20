@@ -19,7 +19,7 @@
   <code><img width="3%" title="Telegram" src="images/logo/browserstack.png"></code>
 </p>
 
-# 🗂️ Структура проекта
+# Структура проекта
 
     📁helpers (все файлы в этом каталоге являются вспомогательными)
         📁application_manager
@@ -68,8 +68,6 @@
     README.md
     requirements.txt (файл с зависимостями)
 
-# 🏃 Быстрый старт
-
 ## Запуск тестов локально
 
 1) Клонировать репозиторий: git clone https://github.com/falinpavel/qa_guru_graduation_project.git
@@ -84,10 +82,14 @@
 3) Для запуска тестов в Jenkins нажать "Build with parameters"
 4) Нажать "Build"
 
-# 🖼️ Визуализация результатов
+# Визуализация результатов
 
 ### Если тесты запускались локально, то результаты можно посмотреть командой: 
 ```bash
 allure serve reports/allure-results
 ```
 ### Если тесты запускались в Jenkins, то результаты можно посмотреть кликнув по иконке Allure в Jenkins в завершенной сборке
+
+<p><img title="Jenkins_Allure" src="images/screenschot/allure_report_in_jenkins_1.png"></p>
+<p><img title="Jenkins_Allure" src="images/screenschot/allure_report_in_jenkins_2.png"></p>
+<p><img title="Jenkins_Allure" src="images/screenschot/allure_report_in_jenkins_3.png"></p>
