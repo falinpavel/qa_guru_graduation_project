@@ -6,17 +6,16 @@
 
 Этот фреймворк предназначен для автоматизации тестирования веб-приложения "Додо Пицца" (https://dodopizza.ru/) и написан с использованием инструментов:
 
-<p  align="left">
-  <code><img width="3%" title="Pycharm" src="images/logo/pycharm.png"></code>
-  <code><img width="3%" title="Python" src="images/logo/python.png"></code>
-  <code><img width="3%" title="Pytest" src="images/logo/pytest.png"></code>
-  <code><img width="3%" title="Selene" src="images/logo/selene.png"></code>
-  <code><img width="3%" title="Selenium" src="images/logo/selenium.png"></code>
-  <code><img width="3%" title="GitHub" src="images/logo/github.png"></code>
-  <code><img width="3%" title="Jenkins" src="images/logo/jenkins.png"></code>
-  <code><img width="3%" title="Allure Report" src="images/logo/allure_report.png"></code>
-  <code><img width="3%" title="Telegram" src="images/logo/tg.png"></code>
-  <code><img width="3%" title="Telegram" src="images/logo/browserstack.png"></code>
+<p  align="center">
+  <code><img width="3%" title="Pycharm" src="resources/images/logo/pycharm.png"></code>
+  <code><img width="3%" title="Python" src="resources/images/logo/python.png"></code>
+  <code><img width="3%" title="Pytest" src="resources/images/logo/pytest.png"></code>
+  <code><img width="3%" title="Selene" src="resources/images/logo/selene.png"></code>
+  <code><img width="3%" title="Selenium" src="resources/images/logo/selenium.png"></code>
+  <code><img width="3%" title="GitHub" src="resources/images/logo/github.png"></code>
+  <code><img width="3%" title="Jenkins" src="resources/images/logo/jenkins.png"></code>
+  <code><img width="3%" title="Allure Report" src="resources/images/logo/allure_report.png"></code>
+  <code><img width="3%" title="Telegram" src="resources/images/logo/tg.png"></code>
 </p>
 
 # Структура проекта
@@ -90,10 +89,10 @@ allure serve reports/allure-results
 ```
 ### Если тесты запускались в Jenkins, то результаты можно посмотреть кликнув по иконке Allure в Jenkins в завершенной сборке
 
-<p><img title="Jenkins_Allure" src="images/screenshot/allure_report_in_jenkins_1.png"></p>
-<p><img title="Jenkins_Allure" src="images/screenshot/allure_report_in_jenkins_2.png"></p>
-<p><img title="Jenkins_Allure" src="images/screenshot/allure_report_in_jenkins_3.png"></p>
+<p><img title="Jenkins_Allure" src="resources/images/screenshot/allure_report_in_jenkins_1.png"></p>
+<p><img title="Jenkins_Allure" src="resources/images/screenshot/allure_report_in_jenkins_2.png"></p>
+<p><img title="Jenkins_Allure" src="resources/images/screenshot/allure_report_in_jenkins_3.png"></p>
 
 # Интеграция с Telegram для отправки результатов тестов (на уровне Jenkins)
 
-<p><img title="Telegram" src="images/screenshot/telegram_1.png"></p>
+<p><img title="Telegram" src="resources/images/screenshot/telegram_1.png"></p>
