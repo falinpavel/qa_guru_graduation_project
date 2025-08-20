@@ -11,37 +11,73 @@
 
 ### Цель — писать поддерживаемые, читаемые и надежные тесты, используя лучшие практики автоматизации.
 
-## ⚙️ Возможности
+## ⚙️ Реализовано
 📂 Чистая архитектура с использованием паттерна Page Object
+
 🧪 Поддержка параметризации и фикстур Pytest
+
 📊 Интеграция с Allure Report — красивые отчеты о тестах
+
 🎭 Генерация уникальных тестовых данных с помощью Faker
 
 ## 🗂️ Структура проекта
 
-🏃 Быстрый старт
-bash
-# Клонировать репозиторий
-git clone https://github.com/falinpavel/qa_guru_graduation_project.git
+    📁helpers
+        📁application_manager
+            application_manager.py
+        📁config
+            links.py
+        📁data
+            user_info.py
+        📁pages
+            📁components
+                📁cart
+                    cart.py
+                📁header
+                    header_menu.py
+            📁pages
+                📁about_us_page
+                    📁dodo_control_page
+                        control_page.py
+                    about_us_page.py
+                📁contact_page
+                    contacts_page.py
+                📁home_page
+                    📁products
+                        📁pizza_group
+                            home_page_pizza_group.py
+                        📁roman_pizza_group
+                            home_page_roman_pizza_group.py
+                    home_page.py
+    📁resources
+    📁tests
+        📁tests_add_products
+            test_add_products_pizza.py
+            test_add_products_roman_pizza.py
+        📁tests_dodo_cart
+            test_dodo_cart_unauthorized.py
+        📁tests_dodo_control_page
+            test_dodo_control_page.py
+        📁tests_dodo_home_page
+            test_dodo_header_menu.py
+            test_dodo_user_locations.py
+    📁utils
+        attach.py
+    .gitignore
+    conftest.py
+    pytest.ini
+    README.md
+    requirements.txt
 
-## Установить зависимости
-pip install -r requirements.txt
+## 🏃 Быстрый старт
 
-## Запуск тестов с генерацией отчетов Allure
-pytest --alluredir=reports/allure-results
-
-## Просмотр отчета Allure (если установлен Allure CLI)
-allure serve reports/allure-results
-📈 Результаты покрытия тестами
-Тип покрытия	Процент	Комментарий
-Покрытие кода	85%	Отличное покрытие
-Покрытие UI	90%	Большая часть ключевых сценариев
-Автоматизация	95%	Все критические тесты автоматизированы
-Здесь вы можете вставить актуальные данные из вашего инструмента покрытия тестов
+| Запуск локально                                                                                |Запуск в Jenkins | 
+|------------------------------------------------------------------------------------------------|---------------:|
+| Клонировать репозиторий: git clone https://github.com/falinpavel/qa_guru_graduation_project.git |  |
+| Установить зависимости: pip install -r requirements.txt                                        |  |
+| Запуск тестов с генерацией отчетов Allure: pytest --alluredir=reports/allure-results           |  |
+| Просмотр отчета Allure (если установлен Allure CLI): allure serve reports/allure-results                                          |  |
+|                                                                                                |  |
+|                                                                                                |  |
 
 ## 🖼️ Визуализация результатов
-Jenkins
-(Здесь будет вставлена картинка с отчетом Jenkins)
-![Jenkins](path/to/jenure Report
-
-(Здесь будет вставлена картинка с отчетом Allure)
