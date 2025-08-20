@@ -22,52 +22,52 @@
 
 ## 🗂️ Структура проекта
 
-    📁helpers
+    📁helpers (все файлы в этом каталоге являются вспомогательными)
         📁application_manager
-            application_manager.py
+            application_manager.py (application manager - хранятся все страницы и компоненты)
         📁config
-            links.py
+            links.py (содержит ссылки на сайт, которые используются в тестах)
         📁data
-            user_info.py
+            user_info.py (содержит данные для тестовых пользователей, генерируемые с помощью Faker)
         📁pages
-            📁components
+            📁components (общие компоненты которые используются во всех страницах)
                 📁cart
-                    cart.py
+                    cart.py (компонент корзины)
                 📁header
-                    header_menu.py
-            📁pages
+                    header_menu.py (компонент верхнего меню)
+            📁pages (страницы сайта)
                 📁about_us_page
                     📁dodo_control_page
-                        control_page.py
-                    about_us_page.py
+                        control_page.py (страница "Контроль Додо")
+                    about_us_page.py (страница "О нас")
                 📁contact_page
-                    contacts_page.py
+                    contacts_page.py (страница "Контакты")
                 📁home_page
-                    📁products
+                    📁products (каталог продуктов доступный на главной странице)
                         📁pizza_group
-                            home_page_pizza_group.py
+                            home_page_pizza_group.py (группа "Пиццы" с каталогом пицц)
                         📁roman_pizza_group
-                            home_page_roman_pizza_group.py
-                    home_page.py
-    📁resources
-    📁tests
-        📁tests_add_products
+                            home_page_roman_pizza_group.py (группа "Романская пицца" с каталогом романской пиццы)
+                    home_page.py (главная страница с описанием общих функциональностей)
+    📁resources (файлы, которые используются в тестах)
+    📁tests (все файлы в этом каталоге являются тестами)
+        📁tests_add_products (группа тестов, которые проверяют добавление продуктов в корзину)
             test_add_products_pizza.py
             test_add_products_roman_pizza.py
-        📁tests_dodo_cart
+        📁tests_dodo_cart (группа тестов, которые проверяют корзину)
             test_dodo_cart_unauthorized.py
-        📁tests_dodo_control_page
+        📁tests_dodo_control_page (группа тестов, которые проверяют страницу "Контроль Додо")
             test_dodo_control_page.py
-        📁tests_dodo_home_page
+        📁tests_dodo_home_page (группа тестов, которые проверяют главную страницу)
             test_dodo_header_menu.py
             test_dodo_user_locations.py
     📁utils
-        attach.py
+        attach.py (файл с вспомогательными функциями для работы с видео, скриншотами и логами Allure)
     .gitignore
-    conftest.py
-    pytest.ini
+    conftest.py (фикстуры)
+    pytest.ini (конфигурационный файл Pytest для Jenkins)
     README.md
-    requirements.txt
+    requirements.txt (файл с зависимостями)
 
 ## 🏃 Быстрый старт
 
