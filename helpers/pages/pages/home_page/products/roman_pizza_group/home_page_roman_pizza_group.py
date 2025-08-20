@@ -22,16 +22,16 @@ class HomePageRomanPizzaGroup:
             browser.element('.popup-close-button').click()
         return self
 
-    @allure.step('Проверить что римская пицца представлена только в одном размере')
+    @allure.step('Проверить что римская пицца представлена только в одном размере и только на римском тесте')
     def check_roman_pizza_only_one_size(self) -> 'HomePageRomanPizzaGroup':
         with allure.step('Перейти в попап римской пиццы и проверить что римская пицца'
-                         ' представлена только в одном размере'):
-            browser.element('sc-1rpjq4r-0').should(have.text('25 см'))
+                         ' представлена только в одном размере и делается только из римского теста'):
+            browser.element('(//div[@class="sc-1rpjq4r-0 FwDxs"])[1]').should(have.exact_text('25 см'))
         return self
 
     @allure.step('Проверить что римская пицца делается только из римского теста')
     def check_roman_pizza_only_roman_dough(self) -> 'HomePageRomanPizzaGroup':
         with allure.step('Перейти в попап римской пиццы и проверить что римская пицца'
                          ' делается только из римского теста'):
-            browser.element('sc-1rpjq4r-0').should(have.text('Римское тесто'))
+            browser.element('(//div[@class="sc-1rpjq4r-0 FwDxs"])[2]').should(have.exact_text('Римское тесто'))
         return self
