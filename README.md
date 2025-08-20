@@ -7,15 +7,15 @@
 Этот фреймворк предназначен для автоматизации тестирования веб-приложения "Додо Пицца" (https://dodopizza.ru/) и написан с использованием инструментов:
 
 <p  align="center">
-  <code><img width="5%" title="Pycharm" src="resources/images/logo/pycharm.png"></code>
-  <code><img width="5%" title="Python" src="resources/images/logo/python.png"></code>
-  <code><img width="5%" title="Pytest" src="resources/images/logo/pytest.png"></code>
-  <code><img width="5%" title="Selene" src="resources/images/logo/selene.png"></code>
-  <code><img width="5%" title="Selenium" src="resources/images/logo/selenium.png"></code>
-  <code><img width="5%" title="GitHub" src="resources/images/logo/github.png"></code>
-  <code><img width="5%" title="Jenkins" src="resources/images/logo/jenkins.png"></code>
-  <code><img width="5%" title="Allure Report" src="resources/images/logo/allure_report.png"></code>
-  <code><img width="5%" title="Telegram" src="resources/images/logo/tg.png"></code>
+  <code><img width="5%" title="Pycharm" src="resources/images/logo/pycharm.png" alt="pycharm"></code>
+  <code><img width="5%" title="Python" src="resources/images/logo/python.png" alt="python"></code>
+  <code><img width="5%" title="Pytest" src="resources/images/logo/pytest.png" alt="pytest"></code>
+  <code><img width="5%" title="Selene" src="resources/images/logo/selene.png" alt="selene"></code>
+  <code><img width="5%" title="Selenium" src="resources/images/logo/selenium.png" alt="selenium"></code>
+  <code><img width="5%" title="GitHub" src="resources/images/logo/github.png" alt="github"></code>
+  <code><img width="5%" title="Jenkins" src="resources/images/logo/jenkins.png" alt="jenkins"></code>
+  <code><img width="5%" title="Allure Report" src="resources/images/logo/allure_report.png" alt="allure"></code>
+  <code><img width="5%" title="Telegram" src="resources/images/logo/tg.png" alt="telegram"></code>
 </p>
 
 # Структура проекта
