@@ -12,3 +12,5 @@ class Links:
     DODO_CONTROL_URL = os.getenv('DODO_CONTROL_URL')
 
     ABOUT_US_PAGE_URL = '/about'
+
+    CONTACTS_PAGE_URL = '/contacts'

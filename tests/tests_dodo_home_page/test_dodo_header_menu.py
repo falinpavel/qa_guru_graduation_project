@@ -34,3 +34,15 @@ class TestDodoHeaderMenu:
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_about_us_tab()
         dodo.about_us_page.is_opened()
+
+    @allure.story('')
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('')
+    @allure.id('3')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-3')
+    def test_opening_contacts(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.header_menu.click_contacts_tab()
+        dodo.contacts_page.is_opened(location='moscow')

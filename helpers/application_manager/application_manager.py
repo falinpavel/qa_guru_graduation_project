@@ -1,7 +1,8 @@
 from helpers.pages.pages.about_us_page.about_us_page import AboutUsPage
 from helpers.pages.components.cart.cart import ComponentCart
 from helpers.pages.components.header.header_menu import HeaderMenu
-from helpers.pages.pages.about_us_page.dodocontrol_page.dodo_control_page import DodoControlPage
+from helpers.pages.pages.about_us_page.dodo_control_page.control_page import DodoControlPage
+from helpers.pages.pages.contacts_page.contacts_page import ContactsPage
 from helpers.pages.pages.home_page.home_page import HomePage
 
 
@@ -11,6 +12,7 @@ class DodoApplicationManager:
 
         self.home_page = HomePage()
         self.about_us_page = AboutUsPage()
+        self.contacts_page = ContactsPage()
         self.cart = ComponentCart()
         self.header_menu = HeaderMenu()
         self.dodo_control_page = DodoControlPage()
