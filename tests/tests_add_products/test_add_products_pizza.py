@@ -6,15 +6,15 @@ from helpers.application_manager.application_manager import dodo
 @allure.epic('Добавление продуктов в корзину')
 @allure.feature('Проверка реализации функционала добавления продуктов в корзину')
 @allure.suite('Корзина неавторизованного пользователя')
-class TestDodoAddProducts:
+class TestDodoAddProductsPizza:
 
     @allure.story('Пользователь может выбрать размер пиццы')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.title('При выборе пиццы пользователь может выбрать ее размер')
-    @allure.id('11')
+    @allure.id('1')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
-    @allure.link('https://jira.dodo.ru/tasks/DOOD-11')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-1')
     def test_that_user_can_choose_size_of_pizza(self):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_pizza_group.click_pizza_group()
@@ -35,10 +35,10 @@ class TestDodoAddProducts:
     @allure.story('Пользователь может выбрать тесто для пиццы')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.title('При выборе пиццы пользователь может выбрать тесто, на котором будет готовится пицца')
-    @allure.id('10')
+    @allure.id('2')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
-    @allure.link('https://jira.dodo.ru/tasks/DOOD-10')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-2')
     def test_that_user_can_choose_dough_of_pizza(self):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_pizza_group.click_pizza_group()

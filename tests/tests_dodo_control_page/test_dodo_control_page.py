@@ -10,12 +10,12 @@ from helpers.data.user_info import user
 class TestDodoControlPage:
 
     @allure.story('Неавторизованный пользователь на странице "О нас" может заполнить анкету и стать инспектором')
-    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.severity(allure.severity_level.MINOR)
     @allure.title('Проверка перехода на отдельную страницу для заполнения анкеты инспектора')
-    @allure.id('3')
+    @allure.id('4')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
-    @allure.link('https://jira.dodo.ru/tasks/DOOD-3')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-4')
     def test_transition_questionnaire_form(self):
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_about_us_tab()
@@ -25,14 +25,14 @@ class TestDodoControlPage:
     @allure.story('Пользователь может заполнить анкету и стать инспектором')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.title('Проверка заполнения формы для анкеты инспектора')
-    @allure.id('4')
+    @allure.id('5')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
-    @allure.link('https://jira.dodo.ru/tasks/DOOD-4')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-5')
     def test_successful_filling_questionnaire_form(self):
         dodo.about_us_page \
             .open_with(location='moscow') \
-            .is_opened() \
+            .is_opened(location='moscow') \
             .click_questionnaire_button()
         dodo.dodo_control_page \
             .is_opened() \
