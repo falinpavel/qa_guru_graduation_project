@@ -90,6 +90,10 @@ allure serve reports/allure-results
 ```
 ### Если тесты запускались в Jenkins, то результаты можно посмотреть кликнув по иконке Allure в Jenkins в завершенной сборке
 
-<p><img title="Jenkins_Allure" src="images/screenschot/allure_report_in_jenkins_1.png"></p>
-<p><img title="Jenkins_Allure" src="images/screenschot/allure_report_in_jenkins_2.png"></p>
-<p><img title="Jenkins_Allure" src="images/screenschot/allure_report_in_jenkins_3.png"></p>
+<p><img title="Jenkins_Allure" src="images/screenshot/allure_report_in_jenkins_1.png"></p>
+<p><img title="Jenkins_Allure" src="images/screenshot/allure_report_in_jenkins_2.png"></p>
+<p><img title="Jenkins_Allure" src="images/screenshot/allure_report_in_jenkins_3.png"></p>
+
+# Интеграция с Telegram для отправки результатов тестов (на уровне Jenkins)
+
+<p><img title="Telegram" src="images/screenshot/telegram_1.png"></p>
