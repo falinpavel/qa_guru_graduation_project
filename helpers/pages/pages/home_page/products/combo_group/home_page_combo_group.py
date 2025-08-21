@@ -1,5 +1,5 @@
 import allure
-from selene import browser, have, command
+from selene import browser, have, command, be
 from selene.core.condition import Condition
 
 
@@ -14,11 +14,10 @@ class HomePageComboGroup:
     @allure.step('Кликнуть на конкретное комбо в группе "Комбо" и перейти в попап')
     def click_combo_and_open_popup(self, combo_name: str) -> 'HomePageComboGroup':
         with allure.step(f'Кликнуть на комбо {combo_name}'):
-            browser.element('//h2[contains(text(),"Комбо")]').perform(command.js.scroll_into_view).should(
-                Condition.by_and(have.text('Комбо'))
-            )
-            browser.element(f'//section[@id="combo"]//span[contains(text(),"{combo_name}")]').click()
-            browser.element(f'//span[contains(text(),"{combo_name}")]').perform(command.js.scroll_into_view).click()
+            browser.element('//h2[contains(text(),"Комбо")]').should(Condition.by_and(be.visible))
+            browser.element(f'//span[contains(text(),"{combo_name}")]').should(
+                Condition.by_and(be.visible, be.clickable)
+            ).click()
         return self
 
     @allure.step('Закрыть попап')

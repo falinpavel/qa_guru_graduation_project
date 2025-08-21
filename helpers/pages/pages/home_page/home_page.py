@@ -1,5 +1,6 @@
 import allure
 from selene import browser, be, have
+from selene.core.condition import Condition
 
 from helpers.data.links import Links
 
@@ -20,13 +21,18 @@ class HomePage:
     @allure.step('Изменить город из главной страницы')
     def change_location(self, new_location: str) -> 'HomePage':
         with allure.step('Кликнуть кнопку-ссылку уже выбранного города'):
-            browser.element('.header__about-slogan-text').should(be.visible).should(have.text('Доставка пиццы'))
+            browser.element('.header__about-slogan-text').should(be.visible).should(
+                Condition.by_and(have.text("Доставка пиццы")))
 
-            browser.element('[data-testid="header__about-slogan-text_link"]').should(be.visible).should(be.clickable)
-            browser.element('[data-testid="header__about-slogan-text_link"]').click()
+            browser.element('[data-testid="header__about-slogan-text_link"]').should(Condition.by_and(be.visible))
+            browser.element('[data-testid="header__about-slogan-text_link"]').should(
+                Condition.by_and(be.clickable)).click()
+
         with allure.step('Ввести в поле поиска новый город'):
-            browser.element('[data-testid="locality-selector-popup__search-input"]').should(be.visible).click().type(
-                new_location).press_enter()
+            browser.element('[data-testid="locality-selector-popup__search-input"]').should(
+                Condition.by_and(be.clickable)).click().type(new_location).press_enter()
+
         with allure.step('Проверить что открылась страница с новым городом'):
-            browser.element('[data-testid="header__about-slogan-text_link"]').should(have.text(new_location))
+            browser.element('[data-testid="header__about-slogan-text_link"]').should(
+                Condition.by_and(have.text(new_location)))
         return self

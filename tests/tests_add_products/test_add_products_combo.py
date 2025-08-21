@@ -22,6 +22,7 @@ class TestDodoAddProductsCombo:
             .click_combo_and_open_popup(combo_name='Пицца и напиток') \
             .replace_first_position_in_combo(old='Пепперони фреш', new='Сырная') \
             .close_popup() \
+            .click_combo_group() \
             .click_combo_and_open_popup(combo_name='2 напитка') \
             .replace_first_position_in_combo(old='Добрый Кола', new='Добрый Киви-Виноград') \
             .close_popup()
@@ -40,6 +41,7 @@ class TestDodoAddProductsCombo:
             .click_combo_and_open_popup(combo_name='Салат и закуска') \
             .replace_second_position_in_combo(old='Додстер', new='Острый Додстер') \
             .close_popup() \
-            .click_combo_and_open_popup(combo_name='2 пиццы') \
-            .replace_second_position_in_combo(old='Ветчина и грибы', new='Гавайская') \
+            .click_combo_group() \
+            .click_combo_and_open_popup(combo_name='Пицца и напиток') \
+            .replace_second_position_in_combo(old='Лимонад Арбузный лайм', new='Добрый Апельсин') \
             .close_popup()
