@@ -2,7 +2,7 @@ import allure
 from selene import browser, be, have, by
 from selene.core.condition import Condition
 
-from helpers.data.links import Links
+from helpers.config.links import Links
 
 
 class DodoControlPage:
