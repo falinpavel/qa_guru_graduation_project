@@ -1,8 +1,7 @@
 import allure
-from selene import browser, be, have, command
-from selene.core.condition import Condition
+from selene import browser, have
 
-from helpers.config.links import Links
+from helpers.data.links import Links
 
 
 class ContactsPage:
