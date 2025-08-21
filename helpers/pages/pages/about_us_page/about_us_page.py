@@ -28,7 +28,7 @@ class AboutUsPage:
     @allure.step('Кликнуть на кнопку "Заполнить анкету"')
     def click_questionnaire_button(self) -> 'AboutUsPage':
         with allure.step('Кликнуть на кнопку "Заполнить анкету" для перехода на страницу заполнения анкеты'):
-            browser.element('.secret-buyer__button').perform(command.js.scroll_into_view).click()
+            browser.element('//a[@class="secret-buyer__button"]').perform(command.js.scroll_into_view).click()
         with allure.step('Переключиться на новую вкладку'):
             browser.switch_to_next_tab()
         return self
