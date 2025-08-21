@@ -30,10 +30,10 @@ class HomePage:
             ).click()
 
         with allure.step('Ввести в поле поиска новый город'):
-            browser.element('[data-testid="locality-selector-popup__search-input"]').should(
+            browser.element('//input[@placeholder="Поиск..."]').with_(timeout=browser.config.timeout * 2).should(
                 Condition.by_and(be.clickable)).click().type(new_location).press_enter()
 
         with allure.step('Проверить что открылась страница с новым городом'):
-            browser.element('[data-testid="header__about-slogan-text_link"]').should(
+            browser.element('.header__about-slogan-text_link').with_(timeout=browser.config.timeout * 2).should(
                 Condition.by_and(have.text(new_location)))
         return self
