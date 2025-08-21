@@ -8,7 +8,9 @@ class HomePageComboGroup:
     @allure.step('Перейти в группу "Пицца" кликнув на кнопку "Пицца" на главной странице')
     def click_combo_group(self) -> 'HomePageComboGroup':
         with allure.step('Клик на кнопку "Комбо"'):
-            browser.element('//a[contains(text(),"Комбо")]').should(have.text('Комбо')).click()
+            browser.element('//a[contains(text(),"Комбо")]').with_(timeout=browser.config.timeout * 2).should(
+                Condition.by_and(be.clickable, have.text('Комбо'))
+            ).click()
         return self
 
     @allure.step('Кликнуть на конкретное комбо в группе "Комбо" и перейти в попап')
