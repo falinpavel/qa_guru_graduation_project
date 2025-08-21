@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from helpers.application_manager.application_manager import dodo
 
@@ -24,7 +25,7 @@ class TestDodoHeaderMenu:
             .check_live_stream_is_inactive()
 
     @allure.story('Неавторизованный пользователь может переходить на страницу "О нас"')
-    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.severity(allure.severity_level.MINOR)
     @allure.title('Проверка перехода на страницу "О нас" и ее контент')
     @allure.id('7')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
@@ -36,7 +37,7 @@ class TestDodoHeaderMenu:
         dodo.about_us_page.is_opened(location='moscow')
 
     @allure.story('Неавторизованный пользователь может переходить на страницу "Контакты"')
-    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.severity(allure.severity_level.NORMAL)
     @allure.title('Проверка перехода на страницу "Контакты" и ее контент')
     @allure.id('8')
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
