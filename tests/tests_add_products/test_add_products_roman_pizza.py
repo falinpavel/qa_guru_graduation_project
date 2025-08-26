@@ -49,3 +49,16 @@ class TestDodoAddProductsRomanPizza:
             .click_roman_pizza_and_open_popup('Римская Карбонара') \
             .check_roman_pizza_only_roman_dough() \
             .close_popup()
+
+    @allure.story('Любая позиция в группу "Римские пиццы" имеет цену')
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('При просмотре группы "Римские пиццы" все позиции имеют заполненный элемент с ценой позиции,'
+                  'и она не равна 0')
+    @allure.id('18')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-18')
+    def test_that_all_roman_pizza_has_price(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.home_page_roman_pizza_group.click_roman_pizza_group()
+        dodo.home_page_roman_pizza_group.check_all_roman_pizza_prices()

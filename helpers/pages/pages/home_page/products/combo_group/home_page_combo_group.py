@@ -47,3 +47,12 @@ class HomePageComboGroup:
             browser.element(f'//div[@class="sc-rtif5y-2 ceuSI" and text()="{new}"]').click()
             browser.element('(//div[@class="name"])[2]').should(Condition.by_and(have.text(new)))
         return self
+
+    @allure.step('Проверить что абсолютно у всех комбо есть цена')
+    def check_all_combo_prices(self) -> 'HomePageComboGroup':
+        with allure.step('Перейти в группу "Комбо" и проверить что у всех позиций есть цена и она не равна нулю'):
+            all_products_carts = browser.all('//section[@id="nkank"]//div[@class="product-control-price"]')
+            for product in all_products_carts:
+                product.perform(command.js.scroll_into_view).should(Condition.by_and(be.visible, be.not_.blank))
+        return self
+

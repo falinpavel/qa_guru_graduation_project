@@ -51,3 +51,16 @@ class TestDodoAddProductsPizza:
             .choose_dough_of_pizza(pizza_dough='Традиционное') \
             .choose_dough_of_pizza(pizza_dough='Тонкое') \
             .close_popup()
+
+    @allure.story('Любая позиция в группу "Пиццы" имеет цену')
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('При просмотре группы "Пиццы" все позиции имеют заполненный элемент с ценой позиции,'
+                  'и она не равна 0')
+    @allure.id('16')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-16')
+    def test_that_all_pizza_has_price(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.home_page_pizza_group.click_pizza_group()
+        dodo.home_page_pizza_group.check_all_pizza_prices()

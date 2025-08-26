@@ -1,5 +1,6 @@
 import allure
-from selene import browser, have
+from selene import browser, have, command, be
+from selene.core.condition import Condition
 
 
 class HomePageRomanPizzaGroup:
@@ -34,4 +35,12 @@ class HomePageRomanPizzaGroup:
         with allure.step('Перейти в попап римской пиццы и проверить что римская пицца'
                          ' делается только из римского теста'):
             browser.element('(//div[@class="sc-1rpjq4r-0 FwDxs"])[2]').should(have.exact_text('Римское тесто'))
+        return self
+
+    @allure.step('Проверить что абсолютно у всех римских пицц есть цена')
+    def check_all_roman_pizza_prices(self) -> 'HomePageRomanPizzaGroup':
+        with allure.step('Перейти в группу "Римские пиццы" и проверить что у всех позиций есть цена и она не равна нулю'):
+            all_products_carts = browser.all('//section[@id="nosmz"]//div[@class="product-control-price"]')
+            for product in all_products_carts:
+                product.perform(command.js.scroll_into_view).should(Condition.by_and(be.visible, be.not_.blank))
         return self

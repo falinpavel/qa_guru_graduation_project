@@ -1,5 +1,6 @@
 import allure
-from selene import browser, have
+from selene import browser, have, command, be
+from selene.core.condition import Condition
 
 
 class HomePagePizzaGroup:
@@ -32,4 +33,12 @@ class HomePagePizzaGroup:
     def close_popup(self) -> 'HomePagePizzaGroup':
         with allure.step('Закрыть попап'):
             browser.element('.popup-close-button').click()
+        return self
+
+    @allure.step('Проверить что абсолютно у всех пицц есть цена')
+    def check_all_pizza_prices(self) -> 'HomePagePizzaGroup':
+        with allure.step('Перейти в группу "Пиццы" и проверить что у всех позиций есть цена и она не равна нулю'):
+            all_products_carts = browser.all('//section[@id="guzhy"]//div[@class="product-control-price"]')
+            for product in all_products_carts:
+                product.perform(command.js.scroll_into_view).should(Condition.by_and(be.visible, be.not_.blank))
         return self

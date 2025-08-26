@@ -40,7 +40,7 @@ class HomePageSnacksGroup:
             return self
 
     @allure.step('Проверить что абсолютно у всех закусок есть цена')
-    def check_all_snacks_prices(self):
+    def check_all_snacks_prices(self) -> 'HomePageSnacksGroup':
         with allure.step('Перейти в группу "Закуски" и проверить что у всех позиций есть цена и она не равна нулю'):
             all_products_carts = browser.all('//section[@id="kxgls"]//div[@class="product-control-price"]')
             for product in all_products_carts:

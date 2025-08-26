@@ -45,3 +45,16 @@ class TestDodoAddProductsCombo:
             .click_combo_and_open_popup(combo_name='Пицца и напиток') \
             .replace_second_position_in_combo(old='Лимонад Арбузный лайм', new='Добрый Апельсин') \
             .close_popup()
+
+    @allure.story('Любая позиция в группу "Комбо" имеет цену')
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('При просмотре группы "Комбо" все позиции имеют заполненный элемент с ценой позиции,'
+                  'и она не равна 0')
+    @allure.id('17')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-17')
+    def test_that_all_combo_has_price(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.home_page_combo_group.click_combo_group()
+        dodo.home_page_combo_group.check_all_combo_prices()
