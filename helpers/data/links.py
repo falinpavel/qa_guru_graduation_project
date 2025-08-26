@@ -14,3 +14,7 @@ class Links:
     ABOUT_US_PAGE_URL = '/about'
 
     CONTACTS_PAGE_URL = '/contacts'
+
+    CORPORATE_ORDERS_PAGE_URL = '/b2b'
+
+    GIFT_CERTIFICATES_PAGE_URL = '/certificates'

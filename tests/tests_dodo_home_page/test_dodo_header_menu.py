@@ -47,3 +47,31 @@ class TestDodoHeaderMenu:
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_contacts_tab()
         dodo.contacts_page.is_opened(location='moscow')
+
+    @allure.story('Неавторизованный пользователь может переходить на страницу "Корпоративные заказы"')
+    @allure.severity(allure.severity_level.NORMAL)
+    @allure.title('Проверка перехода на страницу "Корпоративные заказы" и ее контент')
+    @allure.id('19')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-19')
+    def test_opening_corporate_orders(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.header_menu.click_corporate_orders_tab()
+        dodo.corporate_orders_page \
+            .popup_is_opened() \
+            .close_popup()
+
+    @allure.story('Неавторизованный пользователь может переходить на страницу "Подарочные сертификаты"')
+    @allure.severity(allure.severity_level.NORMAL)
+    @allure.title('Проверка перехода на страницу "Подарочные сертификаты" и ее контент')
+    @allure.id('20')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-20')
+    def test_opening_gift_certificates(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.header_menu.click_gift_certificates_tab()
+        dodo.gift_certificates_page \
+            .popup_is_opened() \
+            .close_popup()

@@ -1,5 +1,6 @@
 import allure
-from selene import browser, be
+from selene import browser, be, have
+from selene.core.condition import Condition
 
 
 class HeaderMenu:
@@ -31,3 +32,17 @@ class HeaderMenu:
         with allure.step('Кликнуть на таб "Контакты"'):
             browser.element('//a[text()="Контакты"]').click()
         return self
+
+    @allure.step('Кликнуть на таб "Корпоративные заказы"')
+    def click_corporate_orders_tab(self) -> 'HeaderMenu':
+        with allure.step('Кликнуть на таб "Корпоративные заказы"'):
+            browser.element('//a[text()="Корпоративные заказы"]').click()
+        return self
+
+    @allure.step('Кликнуть на таб "Подарочные сертификаты"')
+    def click_gift_certificates_tab(self) -> 'HeaderMenu':
+        with allure.step('Кликнуть на таб "Подарочные сертификаты"'):
+            browser.element('//a[text()="Подарочные сертификаты"]').should(Condition.by_and(
+                have.text('Подарочные сертификаты'), be.clickable)).click()
+        return self
+
