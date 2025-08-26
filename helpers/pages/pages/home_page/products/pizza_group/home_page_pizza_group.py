@@ -29,7 +29,7 @@ class HomePagePizzaGroup:
             browser.element(f'//label[contains(text(), "{pizza_dough}")]').click()
         return self
 
-    @allure.step('Закрыть попапэ')
+    @allure.step('Закрыть попап')
     def close_popup(self) -> 'HomePagePizzaGroup':
         with allure.step('Закрыть попап'):
             browser.element('.popup-close-button').click()
