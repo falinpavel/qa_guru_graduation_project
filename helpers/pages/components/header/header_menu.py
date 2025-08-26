@@ -5,10 +5,11 @@ from selene.core.condition import Condition
 
 class HeaderMenu:
 
-    @allure.step('Кликнуть на таб "Прямой эфир"')
+    @allure.step('Кликнуть на таб "Прямой эфир"')
     def click_live_stream_tab(self) -> 'HeaderMenu':
-        with allure.step('Кликнуть на таб "Прямой эфир"'):
-            browser.element('.ieMmsb').click()
+        with allure.step('Кликнуть на таб "Прямой эфир"'):
+            browser.element('//a[text()="Прямой эфир"]').should(Condition.by_and(
+                have.text('Прямой эфир'), be.clickable)).click()
         return self
 
     @allure.step('Проверить активность таба "Прямой эфир"')
@@ -24,19 +25,22 @@ class HeaderMenu:
     @allure.step('Кликнуть на таб "О нас"')
     def click_about_us_tab(self) -> 'HeaderMenu':
         with allure.step('Кликнуть на таб "О нас"'):
-            browser.element('//a[text()="О нас"]').click()
+            browser.element('//a[text()="О нас"]').should(Condition.by_and(
+                have.text('О нас'), be.clickable)).click()
         return self
 
     @allure.step('Кликнуть на таб "Контакты"')
     def click_contacts_tab(self) -> 'HeaderMenu':
         with allure.step('Кликнуть на таб "Контакты"'):
-            browser.element('//a[text()="Контакты"]').click()
+            browser.element('//a[text()="Контакты"]').should(Condition.by_and(
+                have.text('Контакты'), be.clickable)).click()
         return self
 
     @allure.step('Кликнуть на таб "Корпоративные заказы"')
     def click_corporate_orders_tab(self) -> 'HeaderMenu':
         with allure.step('Кликнуть на таб "Корпоративные заказы"'):
-            browser.element('//a[text()="Корпоративные заказы"]').click()
+            browser.element('//a[text()="Корпоративные заказы"]').should(Condition.by_and(
+                have.text('Корпоративные заказы'), be.clickable)).click()
         return self
 
     @allure.step('Кликнуть на таб "Подарочные сертификаты"')
