@@ -1,0 +1,42 @@
+import allure
+
+from helpers.application_manager.application_manager import dodo
+
+
+@allure.epic('Добавление продуктов в корзину')
+@allure.feature('Проверка реализации функционала добавления продуктов в корзину')
+@allure.suite('Корзина неавторизованного пользователя')
+class TestDodoAddProductsCocktails:
+
+    @allure.story('Дефолтным объемом коктейля 0,3 л')
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('При выборе коктейля пользователю по умолчанию выбран самый маленький объем')
+    @allure.id('21')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-21')
+    def test_that_default_volume_is_small(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.home_page_cocktails_group.click_cocktails_group() \
+            .click_cocktail_and_open_popup(cocktail_name='Молочный коктейль Фисташка') \
+            .check_default_volume() \
+            .close_popup()
+
+    @allure.story('Пользователь может выбрать объем коктейля')
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('При выборе коктейля пользователь может изменить '
+                  'его объем, если это предусмотрено позицией')
+    @allure.id('22')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-22')
+    def test_that_default_volume_is_small(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.home_page_cocktails_group.click_cocktails_group() \
+            .click_cocktail_and_open_popup(cocktail_name='Персиковый молочный коктейль') \
+            .change_volume_of_cocktail(new_volume='0,6 л') \
+            .close_popup() \
+            .click_cocktail_and_open_popup(cocktail_name='Шоколадный молочный коктейль') \
+            .change_volume_of_cocktail(new_volume='0,6 л') \
+            .change_volume_of_cocktail(new_volume='0,3 л') \
+            .close_popup()
