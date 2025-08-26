@@ -37,7 +37,7 @@ class TestDodoAddProductsSnacks:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-15')
-    def test_that_user_can_choose_quantity_of_snacks(self):
+    def test_that_all_snacks_has_price(self):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_snacks_group.click_snacks_group()
         dodo.home_page_snacks_group.check_all_snacks_prices()
