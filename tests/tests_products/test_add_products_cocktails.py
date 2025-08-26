@@ -30,7 +30,7 @@ class TestDodoAddProductsCocktails:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-22')
-    def test_that_default_volume_is_small(self):
+    def test_that_user_can_choose_volume_of_cocktail(self):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_cocktails_group.click_cocktails_group() \
             .click_cocktail_and_open_popup(cocktail_name='Персиковый молочный коктейль') \

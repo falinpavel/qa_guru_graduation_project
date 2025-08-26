@@ -21,12 +21,12 @@ class TestDodoAddProductsSnacks:
         dodo.home_page_snacks_group.click_snacks_group() \
             .click_snack_and_open_popup(snacks_name='Креветки терияки') \
             .check_default_quantity_of_snack() \
-            .change_volume_of_cocktail(new_volume='9 шт') \
+            .change_quantity_of_snack(new_quantity='9 шт') \
             .close_popup() \
             .click_snack_and_open_popup(snacks_name='Хашбрауны') \
             .check_default_quantity_of_snack(default_quantity='4 шт') \
-            .change_volume_of_cocktail(new_volume='3 шт') \
-            .change_volume_of_cocktail(new_volume='2 шт') \
+            .change_quantity_of_snack(new_quantity='3 шт') \
+            .change_quantity_of_snack(new_quantity='2 шт') \
             .close_popup()
 
     @allure.story('Любая позиция в группу "Закуски" имеет цену')
