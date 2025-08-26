@@ -7,6 +7,7 @@ from helpers.pages.pages.home_page.home_page import HomePage
 from helpers.pages.pages.home_page.products.combo_group.home_page_combo_group import HomePageComboGroup
 from helpers.pages.pages.home_page.products.pizza_group.home_page_pizza_group import HomePagePizzaGroup
 from helpers.pages.pages.home_page.products.roman_pizza_group.home_page_roman_pizza_group import HomePageRomanPizzaGroup
+from helpers.pages.pages.home_page.products.snacks_group.home_page_snacks_group import HomePageSnacksGroup
 
 
 class DodoApplicationManager:
@@ -15,18 +16,19 @@ class DodoApplicationManager:
 
         self.home_page = HomePage()
 
+        self.cart = ComponentCart()
+        self.header_menu = HeaderMenu()
+
         self.home_page_pizza_group = HomePagePizzaGroup()
         self.home_page_roman_pizza_group = HomePageRomanPizzaGroup()
         self.home_page_combo_group = HomePageComboGroup()
+        self.home_page_snacks_group = HomePageSnacksGroup()
 
         self.about_us_page = AboutUsPage()
 
         self.contacts_page = ContactsPage()
 
         self.dodo_control_page = DodoControlPage()
-
-        self.cart = ComponentCart()
-        self.header_menu = HeaderMenu()
 
 
 dodo = DodoApplicationManager()
