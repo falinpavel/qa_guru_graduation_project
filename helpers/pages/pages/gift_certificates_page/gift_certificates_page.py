@@ -32,6 +32,7 @@ class GiftCertificatesPage:
     def is_opened(self) -> 'GiftCertificatesPage':
         with allure.step(f'Проверить что открыта страница "Подарочные сертификаты"'):
             browser.should(have.url(self.url))
+
             browser.element('[data-testid="order-button"]').should(
                 Condition.by_and(be.clickable, have.text('Заказать')))
         return self
@@ -47,7 +48,7 @@ class GiftCertificatesPage:
             if a_gift_for == 'Для сотрудников':
                 browser.element(f'//button[text()="{a_gift_for}"]').should(Condition.by_and(be.clickable)).click()
             else:
-                with allure.step('Кликнуть на "Для другей и близких" и проверить что в попапе отображается '
+                with allure.step('Кликнуть на "Для друзей и близких" и проверить что в попапе отображается '
                                  'подсказка о недоступности такой покупки'):
                     browser.element(f'//button[text()="{a_gift_for}"]').should(Condition.by_and(be.clickable)).click()
                     browser.element('//h2[@class="title"]').should(Condition.by_and(
@@ -64,4 +65,55 @@ class GiftCertificatesPage:
     def click_close_button_and_go_to_home(self) -> 'GiftCertificatesPage':
         with allure.step('Нажать на крестик на странице "Сертификаты" что бы вернуться на главную страницу'):
             browser.element('.header-right').should(Condition.by_and(be.visible, be.clickable)).click()
+        return self
+
+    @allure.step('Вернуться назад к кнопке "Заказать"')
+    def click_back_button(self) -> 'GiftCertificatesPage':
+        with allure.step('Нажать на кнопку назад и вернуться на предыдущий таб в /certificates'):
+            browser.element('.header-left').should(Condition.by_and(be.visible, be.clickable)).click()
+        return self
+
+    @allure.step('Выбрать тип сертификата ("Одна сумма" или "Разные суммы")')
+    def choose_certificate_type(self, type_of: str):
+        with allure.step(f'Выбрать тип сертификата: {type_of}'):
+            browser.element(f'//label[text()="{type_of}"]').should(Condition.by_and(be.clickable)).click()
+        return self
+
+    @allure.step('Заполнить форму для сертификата типа "Одна сумма"')
+    def filling_form_for_one_amount_certificate(self, amount: int, total: int) -> 'GiftCertificatesPage':
+        with allure.step(f'Заполнить бюджет на сумму: {amount} и для количества сотрудников: {total}'):
+            browser.element('#certificates__single__budget').should(Condition.by_and(
+                be.clickable)).clear().click().type(amount).press_enter().should(have.value(str(amount)))
+
+        with allure.step(f'Заполнить количество сотрудников: {total}'):
+            browser.element('#certificates__single__count').should(Condition.by_and(
+                be.clickable)).clear().click().type(total).press_enter().should(have.value(str(total)))
+
+        with allure.step(f'Проверить корректность расчета, что сумма сертификата равна: {amount // total}'):
+            browser.element('#certificates__single__amount').should(Condition.by_and(
+                have.value(f"{amount // total:,}".replace(",", "\u00A0") + "\u202F₽")))
+        return self
+
+    @allure.step('Заполнить форму для сертификата типа "Разные суммы"')
+    def filling_form_for_other_amount_certificate(self,
+                                                  first: tuple,
+                                                  second: tuple,
+                                                  third: tuple
+                                                  ) -> 'GiftCertificatesPage':
+
+        certificates = [first, second, third]
+
+        for index, cert_data in enumerate(certificates):
+            with allure.step(f'Заполнить значения для {index + 1}-го сертификата'):
+                inputs = browser.all(f'.input-sub-container [data-index="{index}"]')
+
+                inputs.first.should(be.clickable).click().type(cert_data[0]).press_enter()
+                inputs.first.should(have.value(cert_data[0]))
+
+                inputs.second.should(be.clickable).click().type(cert_data[1]).press_enter()
+                inputs.second.should(have.value(cert_data[1]))
+
+                if index < 2:
+                    browser.element('//button[contains(text(),"Добавить ещё")]').click()
+
         return self
