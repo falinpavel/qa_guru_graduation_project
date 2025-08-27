@@ -72,3 +72,23 @@ class TestDodoBuyGiftCertificates:
             .filling_form_for_other_amount_certificate(first=('10', '2000'),
                                                        second=('15', '2500'),
                                                        third=('20', '5000'))
+
+    @allure.story('Пользователь после заполнения формы и выборе "Отправим за вас" может скачать шаблон')
+    @allure.severity(allure.severity_level.BLOCKER)
+    @allure.title('Проверка, что после заполнения формы можно скачать шаблона при '
+                  'если выбран способ получения "Отправим за вас"')
+    @allure.id('27')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-27')
+    def test_download_template(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.header_menu.click_gift_certificates_tab()
+        dodo.gift_certificates_page \
+            .popup_is_opened() \
+            .select_and_click_the_recipient(a_gift_for='Для сотрудников') \
+            .is_opened() \
+            .click_order_button() \
+            .choose_certificate_type(type_of='Одна сумма') \
+            .filling_form_for_one_amount_certificate(amount=20000, total=10) \
+            .click_next_button()

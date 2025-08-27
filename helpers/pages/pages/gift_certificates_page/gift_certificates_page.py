@@ -100,7 +100,6 @@ class GiftCertificatesPage:
                                                   second: tuple,
                                                   third: tuple
                                                   ) -> 'GiftCertificatesPage':
-
         certificates = [first, second, third]
 
         for index, cert_data in enumerate(certificates):
@@ -115,5 +114,10 @@ class GiftCertificatesPage:
 
                 if index < 2:
                     browser.element('//button[contains(text(),"Добавить ещё")]').click()
+        return self
 
+    @allure.step('Нажать на кнопку "Дальше"')
+    def click_next_button(self) -> 'GiftCertificatesPage':
+        with allure.step('После заполнения формы нажать на кнопку "Дальше"'):
+            browser.element('[data-testid="next-button"]').should(Condition.by_and(be.clickable)).click()
         return self
