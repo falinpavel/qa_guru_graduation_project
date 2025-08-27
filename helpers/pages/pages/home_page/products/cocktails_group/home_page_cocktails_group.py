@@ -43,3 +43,11 @@ class HomePageCocktailsGroup:
             browser.element('.popup-close-button').click()
         return self
 
+    @allure.step('Проверить что абсолютно у всех коктейлей есть цена')
+    def check_all_cocktails_prices(self) -> 'HomePageCocktailsGroup':
+        with allure.step('Перейти в группу "Коктейли" и проверить что у всех позиций есть цена и она не равна нулю'):
+            all_products_carts = browser.all('//section[@id="mrwqq"]//div[@class="product-control-price"]')
+            for product in all_products_carts:
+                product.perform(command.js.scroll_into_view).should(Condition.by_and(be.visible, be.not_.blank))
+        return self
+

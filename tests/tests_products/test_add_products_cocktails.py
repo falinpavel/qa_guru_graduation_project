@@ -40,3 +40,16 @@ class TestDodoAddProductsCocktails:
             .change_volume_of_cocktail(new_volume='0,6 л') \
             .change_volume_of_cocktail(new_volume='0,3 л') \
             .close_popup()
+
+    @allure.story('Любая позиция в группу "Коктейли" имеет цену')
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('При просмотре группы "Коктейли" все позиции имеют заполненный элемент с ценой позиции,'
+                  'и она не равна 0')
+    @allure.id('24')
+    @allure.label('owner', 'AQA Engineer: Falin Pavel')
+    @allure.label('category', 'UI', 'WEB')
+    @allure.link('https://jira.dodo.ru/tasks/DOOD-24')
+    def test_that_all_cocktails_has_price(self):
+        dodo.home_page.open_with(location='moscow')
+        dodo.home_page_cocktails_group.click_cocktails_group()
+        dodo.home_page_cocktails_group.check_all_cocktails_prices()
