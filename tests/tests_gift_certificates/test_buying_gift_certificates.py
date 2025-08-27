@@ -91,4 +91,4 @@ class TestDodoBuyGiftCertificates:
             .click_order_button() \
             .choose_certificate_type(type_of='Одна сумма') \
             .filling_form_for_one_amount_certificate(amount=20000, total=10) \
-            .click_next_button()
+            .click_next_button()  # TODO! next steps
