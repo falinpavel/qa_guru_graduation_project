@@ -8,7 +8,7 @@ from helpers.data.links import Links
 class GiftCertificatesPage:
 
     def __init__(self):
-        self.url = f"{Links.BASE_URL}{Links.GIFT_CERTIFICATES_PAGE_URL}"
+        self.url = Links.GIFT_CERTIFICATES_PAGE_URL
 
     @allure.step('Открыть страницу "Подарочные сертификаты"')
     def open_with(self) -> 'GiftCertificatesPage':

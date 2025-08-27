@@ -17,4 +17,4 @@ class Links:
 
     CORPORATE_ORDERS_PAGE_URL = '/b2b'
 
-    GIFT_CERTIFICATES_PAGE_URL = '/certificates'
+    GIFT_CERTIFICATES_PAGE_URL = f'{BASE_URL}/certificates'
