@@ -25,7 +25,7 @@ class TestDodoUserLocations:
         dodo.gift_certificates_page \
             .popup_is_opened() \
             .select_and_click_the_recipient(a_gift_for='Для сотрудников') \
-            .page_is_opened() \
+            .is_opened() \
             .click_close_button_and_go_to_home()
         dodo.header_menu.click_gift_certificates_tab()
         dodo.gift_certificates_page \

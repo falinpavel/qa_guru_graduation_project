@@ -29,7 +29,7 @@ class GiftCertificatesPage:
         return self
 
     @allure.step('Проверить что открыта страница "Подарочные сертификаты"')
-    def page_is_opened(self) -> 'GiftCertificatesPage':
+    def is_opened(self) -> 'GiftCertificatesPage':
         with allure.step(f'Проверить что открыта страница "Подарочные сертификаты"'):
             browser.should(have.url(self.url))
             browser.element('[data-testid="order-button"]').should(
