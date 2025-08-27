@@ -34,7 +34,7 @@ class TestDodoHeaderMenu:
     def test_opening_about_us(self):
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_about_us_tab()
-        dodo.about_us_page.is_opened(location='moscow')
+        dodo.about_us_page.page_is_opened(location='moscow')
 
     @allure.story('Неавторизованный пользователь может переходить на страницу "Контакты"')
     @allure.severity(allure.severity_level.NORMAL)
@@ -46,7 +46,7 @@ class TestDodoHeaderMenu:
     def test_opening_contacts(self):
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_contacts_tab()
-        dodo.contacts_page.is_opened(location='moscow')
+        dodo.contacts_page.page_is_opened(location='moscow')
 
     @allure.story('Неавторизованный пользователь может переходить на страницу "Корпоративные заказы"')
     @allure.severity(allure.severity_level.NORMAL)
