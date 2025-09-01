@@ -121,3 +121,5 @@ class GiftCertificatesPage:
         with allure.step('После заполнения формы нажать на кнопку "Дальше"'):
             browser.element('[data-testid="next-button"]').should(Condition.by_and(be.clickable)).click()
         return self
+
+
