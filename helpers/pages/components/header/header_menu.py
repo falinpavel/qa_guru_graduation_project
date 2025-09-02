@@ -43,10 +43,10 @@ class HeaderMenu:
                 have.text('Корпоративные заказы'), be.clickable)).click()
         return self
 
-    @allure.step('Кликнуть на таб "Подарочные сертификаты"')
+    @allure.step('Кликнуть на таб "Сертификаты для бизнеса"')
     def click_gift_certificates_tab(self) -> 'HeaderMenu':
-        with allure.step('Кликнуть на таб "Подарочные сертификаты"'):
-            browser.element('//a[text()="Подарочные сертификаты"]').should(Condition.by_and(
-                have.text('Подарочные сертификаты'), be.visible, be.clickable)).click()
+        with allure.step('Кликнуть на таб "Сертификаты для бизнеса"'):
+            browser.element('//a[contains(text(),"Сертификаты для бизнеса")]').should(Condition.by_and(
+                have.text('Сертификаты для бизнеса'), be.visible, be.clickable)).click()
         return self
 

@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from helpers.application_manager.application_manager import dodo
 
@@ -19,6 +20,7 @@ class TestDodoBuyGiftCertificates:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-23')
+    @pytest.mark.xfail(reason='https://jira.dodo.ru/tasks/DOOD-431 Выбор получателя сертификата невозможен')
     def test_choose_recipient_for_a_gift_certificates(self):
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_gift_certificates_tab()
@@ -45,8 +47,6 @@ class TestDodoBuyGiftCertificates:
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_gift_certificates_tab()
         dodo.gift_certificates_page \
-            .popup_is_opened() \
-            .select_and_click_the_recipient(a_gift_for='Для сотрудников') \
             .is_opened() \
             .click_order_button() \
             .choose_certificate_type(type_of='Одна сумма') \
@@ -64,8 +64,6 @@ class TestDodoBuyGiftCertificates:
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_gift_certificates_tab()
         dodo.gift_certificates_page \
-            .popup_is_opened() \
-            .select_and_click_the_recipient(a_gift_for='Для сотрудников') \
             .is_opened() \
             .click_order_button() \
             .choose_certificate_type(type_of='Разные суммы') \
@@ -85,8 +83,6 @@ class TestDodoBuyGiftCertificates:
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_gift_certificates_tab()
         dodo.gift_certificates_page \
-            .popup_is_opened() \
-            .select_and_click_the_recipient(a_gift_for='Для сотрудников') \
             .is_opened() \
             .click_order_button() \
             .choose_certificate_type(type_of='Одна сумма') \

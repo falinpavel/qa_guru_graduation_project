@@ -73,5 +73,4 @@ class TestDodoHeaderMenu:
         dodo.home_page.open_with(location='moscow')
         dodo.header_menu.click_gift_certificates_tab()
         dodo.gift_certificates_page \
-            .popup_is_opened() \
-            .close_popup()
+            .is_opened()
