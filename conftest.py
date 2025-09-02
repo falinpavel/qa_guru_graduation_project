@@ -19,10 +19,10 @@ def pytest_addoption(parser):
     )
     parser.addoption(
         "--browser-type",
-        help="Choose browser type (default: chrome)",
+        help=f"Choose browser type (default: {Const.DEFAULT_BROWSER_TYPE})",
         choices=["chrome", "firefox"],
         required=False,
-        default="chrome"
+        default=Const.DEFAULT_BROWSER_TYPE
     )
 
 
@@ -73,6 +73,7 @@ def browser_options(request):
                 "enableLog": True
             }
         }
+
         driver_options.capabilities.update(selenoid_capabilities)
 
         driver = webdriver.Remote(
@@ -120,11 +121,12 @@ def browser_options(request):
 
         selenoid_capabilities = {
             "browserName": "firefox",
-            "browserVersion": "125.0",
+            "browserVersion": request.config.getoption("--browser_version"),
             "selenoid:options": {
                 "enableVideo": False
             }
         }
+
         driver_options.capabilities.update(selenoid_capabilities)
 
         driver = webdriver.Remote(

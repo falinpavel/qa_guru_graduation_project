@@ -8,3 +8,5 @@ class Const:
     RESOURCES_DIR = os.path.join(BASE_DIR, 'resources')
 
     DEFAULT_BROWSER_VERSION = "128.0"
+
+    DEFAULT_BROWSER_TYPE = "chrome"
