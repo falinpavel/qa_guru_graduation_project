@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from helpers.application_manager.application_manager import dodo
 
@@ -16,16 +17,16 @@ class TestDodoAddProductsRomanPizza:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-10')
-    def test_that_roman_pizza_presented_only_one_size(self):
+    @pytest.mark.parametrize(
+        'roman_pizza_name',
+        ['Римская Песто', 'Римская Аррива!', 'Римская Жюльен', 'Римская Пепперони', 'Римская Карбонара'],
+        ids=
+        ['Roman Pesto', 'Roman Arriva!', 'Roman Julen', 'Roman Pepperoni', 'Roman Carbonara']
+    )
+    def test_that_roman_pizza_presented_only_one_size(self, roman_pizza_name):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_roman_pizza_group.click_roman_pizza_group() \
-            .click_roman_pizza_and_open_popup('Римская Аррива!') \
-            .check_roman_pizza_only_one_size() \
-            .close_popup() \
-            .click_roman_pizza_and_open_popup('Римская Жюльен') \
-            .check_roman_pizza_only_one_size() \
-            .close_popup() \
-            .click_roman_pizza_and_open_popup('Римская Карбонара') \
+            .click_roman_pizza_and_open_popup(roman_pizza_name=roman_pizza_name) \
             .check_roman_pizza_only_one_size() \
             .close_popup()
 
@@ -37,16 +38,16 @@ class TestDodoAddProductsRomanPizza:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-11')
-    def test_that_roman_pizza_presented_only_one_dough(self):
+    @pytest.mark.parametrize(
+        'roman_pizza_name',
+        ['Римская Песто', 'Римская Аррива!', 'Римская Жюльен', 'Римская Пепперони', 'Римская Карбонара'],
+        ids=
+        ['Roman Pesto', 'Roman Arriva!', 'Roman Julen', 'Roman Pepperoni', 'Roman Carbonara']
+    )
+    def test_that_roman_pizza_presented_only_one_dough(self, roman_pizza_name):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_roman_pizza_group.click_roman_pizza_group() \
-            .click_roman_pizza_and_open_popup('Римская Аррива!') \
-            .check_roman_pizza_only_roman_dough() \
-            .close_popup() \
-            .click_roman_pizza_and_open_popup('Римская Жюльен') \
-            .check_roman_pizza_only_roman_dough() \
-            .close_popup() \
-            .click_roman_pizza_and_open_popup('Римская Карбонара') \
+            .click_roman_pizza_and_open_popup(roman_pizza_name=roman_pizza_name) \
             .check_roman_pizza_only_roman_dough() \
             .close_popup()
 

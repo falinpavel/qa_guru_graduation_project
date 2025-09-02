@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from helpers.application_manager.application_manager import dodo
 
@@ -15,6 +16,9 @@ class TestDodoUserLocations:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-9')
-    def test_change_location(self):
+    @pytest.mark.parametrize('new_location',
+                             ['Краснодар', 'Абинск', 'Кисловодск'],
+                             ids=['Krasnodar', 'Abinsk', 'Kislovodsk'])
+    def test_change_location(self, new_location):
         dodo.home_page.open_with(location='moscow')
-        dodo.home_page.change_location(new_location='Краснодар')
+        dodo.home_page.change_location(new_location=new_location)

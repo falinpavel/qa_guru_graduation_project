@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from helpers.application_manager.application_manager import dodo
 
@@ -15,21 +16,21 @@ class TestDodoAddProductsPizza:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-1')
-    def test_that_user_can_choose_size_of_pizza(self):
+    @pytest.mark.parametrize(
+        'pizza_name',
+        ['Терияки', 'Чесночный цыпленок', 'Пикантные колбаски', 'Пепперони фреш', 'Четыре сыра', 'Сырная'],
+        ids=
+        ['Teriyaki', 'Garlic Chicken', 'Spicy sausages', 'Pepperoni fresh', 'Four cheeses', 'Cheese']
+    )
+    def test_that_user_can_choose_size_of_pizza(self, pizza_name):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_pizza_group.click_pizza_group()
         dodo.home_page_pizza_group \
-            .click_pizza_and_open_popup(pizza_name='Терияки') \
+            .click_pizza_and_open_popup(pizza_name=pizza_name) \
             .select_pizza_size(pizza_size='20 см') \
             .select_pizza_size(pizza_size='25 см') \
             .select_pizza_size(pizza_size='30 см') \
             .select_pizza_size(pizza_size='35 см') \
-            .close_popup() \
-            .click_pizza_and_open_popup(pizza_name='Чесночный цыпленок') \
-            .select_pizza_size(pizza_size='35 см') \
-            .select_pizza_size(pizza_size='30 см') \
-            .select_pizza_size(pizza_size='25 см') \
-            .select_pizza_size(pizza_size='20 см') \
             .close_popup()
 
     @allure.story('Пользователь может выбрать тесто для пиццы')
@@ -39,17 +40,19 @@ class TestDodoAddProductsPizza:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-2')
-    def test_that_user_can_choose_dough_of_pizza(self):
+    @pytest.mark.parametrize(
+        'pizza_name',
+        ['Терияки', 'Чесночный цыпленок', 'Пикантные колбаски', 'Пепперони фреш', 'Четыре сыра', 'Сырная'],
+        ids=
+        ['Teriyaki', 'Garlic Chicken', 'Spicy sausages', 'Pepperoni fresh', 'Four cheeses', 'Cheese']
+    )
+    def test_that_user_can_choose_dough_of_pizza(self, pizza_name):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_pizza_group.click_pizza_group()
         dodo.home_page_pizza_group \
-            .click_pizza_and_open_popup(pizza_name='Пикантные колбаски') \
+            .click_pizza_and_open_popup(pizza_name=pizza_name) \
             .choose_dough_of_pizza(pizza_dough='Тонкое') \
             .choose_dough_of_pizza(pizza_dough='Традиционное') \
-            .close_popup() \
-            .click_pizza_and_open_popup(pizza_name='Чоризо фреш') \
-            .choose_dough_of_pizza(pizza_dough='Традиционное') \
-            .choose_dough_of_pizza(pizza_dough='Тонкое') \
             .close_popup()
 
     @allure.story('Любая позиция в группу "Пиццы" имеет цену')

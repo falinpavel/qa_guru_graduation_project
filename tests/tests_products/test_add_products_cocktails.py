@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from helpers.application_manager.application_manager import dodo
 
@@ -15,10 +16,18 @@ class TestDodoAddProductsCocktails:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-21')
-    def test_that_default_volume_is_small(self):
+    @pytest.mark.parametrize(
+        'cocktail_name',
+        ['Персиковый молочный коктейль', 'Молочный коктейль Фисташка', 'Молочный коктейль с печеньем Орео',
+         'Классический молочный коктейль', 'Клубничный молочный коктейль', 'Шоколадный молочный коктейль'],
+        ids=
+        ['Peach Milkshake', 'Milkshake Pistachio', 'Oreo Cookie Milkshake',
+         'Classic milkshake', 'Strawberry Milkshake', 'Chocolate Milkshake']
+    )
+    def test_that_default_volume_is_small(self, cocktail_name):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_cocktails_group.click_cocktails_group() \
-            .click_cocktail_and_open_popup(cocktail_name='Молочный коктейль Фисташка') \
+            .click_cocktail_and_open_popup(cocktail_name=cocktail_name) \
             .check_default_volume() \
             .close_popup()
 
@@ -30,13 +39,18 @@ class TestDodoAddProductsCocktails:
     @allure.label('owner', 'AQA Engineer: Falin Pavel')
     @allure.label('category', 'UI', 'WEB')
     @allure.link('https://jira.dodo.ru/tasks/DOOD-22')
-    def test_that_user_can_choose_volume_of_cocktail(self):
+    @pytest.mark.parametrize(
+        'cocktail_name',
+        ['Персиковый молочный коктейль', 'Молочный коктейль Фисташка', 'Молочный коктейль с печеньем Орео',
+         'Классический молочный коктейль', 'Клубничный молочный коктейль', 'Шоколадный молочный коктейль'],
+        ids=
+        ['Peach Milkshake', 'Milkshake Pistachio', 'Oreo Cookie Milkshake',
+         'Classic milkshake', 'Strawberry Milkshake', 'Chocolate Milkshake']
+    )
+    def test_that_user_can_choose_volume_of_cocktail(self, cocktail_name):
         dodo.home_page.open_with(location='moscow')
         dodo.home_page_cocktails_group.click_cocktails_group() \
-            .click_cocktail_and_open_popup(cocktail_name='Персиковый молочный коктейль') \
-            .change_volume_of_cocktail(new_volume='0,6 л') \
-            .close_popup() \
-            .click_cocktail_and_open_popup(cocktail_name='Шоколадный молочный коктейль') \
+            .click_cocktail_and_open_popup(cocktail_name=cocktail_name) \
             .change_volume_of_cocktail(new_volume='0,6 л') \
             .change_volume_of_cocktail(new_volume='0,3 л') \
             .close_popup()
