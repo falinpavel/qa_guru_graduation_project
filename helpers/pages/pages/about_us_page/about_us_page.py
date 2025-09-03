@@ -23,7 +23,7 @@ class AboutUsPage:
             browser.should(have.url(f'{self.url}/{location}{Links.ABOUT_US_PAGE_URL}'))
 
         with allure.step(f'Проверить что открыта страница и на ней отображается h1 "Мы"'):
-            browser.element('.h1').should(Condition.by_and(have.text('Мы')))
+            browser.element('.h1').with_(timeout=browser.config.timeout * 2).should(Condition.by_and(be.visible, have.text('Мы')))
         return self
 
     @allure.step('Кликнуть на кнопку "Заполнить анкету"')

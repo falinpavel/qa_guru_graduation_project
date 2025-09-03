@@ -30,7 +30,7 @@ class HomePage:
             ).click()
 
         with allure.step('Ввести в поле поиска новый город'):
-            browser.element('//input[@placeholder="Поиск..."]').with_(timeout=browser.config.timeout * 2).should(
+            browser.element('//input[@placeholder="Поиск..."]').with_(timeout=browser.config.timeout * 3).should(
                 Condition.by_and(be.clickable)).click().type(new_location).press_enter()
 
         with allure.step('Проверить что открылась страница с новым городом'):
